@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            let choiceNumber = Math.floor(Math.random() * 3) + 1; 
+            var choice = ""
+            if (choiceNumber === 3){
+                choice = "Rock"         
+            }else if (choiceNumber === 2) {
+                choice = "Paper"
+            }else {
+                choice = "Scissors"
+            }
+            return choice;
+        }
+
+        function startGame(playerSelection, computerSelection) {
+            playerSelection = prompt("Rock, Paper, or Scissors?");
+            console.log(playerSelection);
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = getComputerChoice();
+            return selectionComparison(playerSelection, computerSelection);
+        }
+
+        function selectionComparison(playerSelection, computerSelection){
+        switch (computerSelection){
+                    case "Rock":
+                        if (playerSelection === "rock"){
+                            alert("Tie");
+                        }else if (playerSelection === "paper"){
+                            alert("You win!");
+                        }else if (playerSelection === "scissors"){
+                            alert("You lose");
+                        }
+                        break;
+                    
+                    case "Paper":
+                    if (playerSelection === "paper"){
+                            alert("Tie");
+                        }else if (playerSelection === "scissors"){
+                            alert("You win!");
+                        }else if (playerSelection === "rock"){
+                            alert("You lose");
+                        }
+                        break;
+
+                    case "Scissors":
+                    if (playerSelection === "scissors"){
+                            alert("Tie");
+                        }else if (playerSelection === "rock"){
+                            alert("You win!");
+                        }else if (playerSelection === "paper"){
+                            alert("You lose");
+                        }
+                        break;
+                }
+            }
+        function game() {
+            for (let turns = 0; turns < 5; turns = turns + 1) {
+                startGame()
+            if (turns === 5) {
+                break;
+            }
+            }
+        }
+    </script>
+</body>
+</html>
